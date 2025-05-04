@@ -14,7 +14,7 @@ const Home = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    axios.get("http://localhost:5000/api/home-data").then((res) => {
+    axios.get(`${process.env.REACT_APP_API_URL}/api/home-data`).then((res) => {
       setNewUsers(res.data.new_users);
       setTopUsers(res.data.top_users);
     }).catch((err) => {
