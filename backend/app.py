@@ -2,14 +2,14 @@ from flask import Flask
 from config import *
 from extentions import db
 from flask_cors import CORS
-
+import os
 from blueprints.login import login
 from blueprints.panel import panel
 
 
 app = Flask(__name__)
-app.secret_key = SECRET_KEY
-app.config["SQLALCHEMY_DATABASE_URI"] = MYSQL_CONFIG
+app.secret_key =os.environ.get('SECRET_KEY', 'fallback-secret')
+app.config["SQLALCHEMY_DATABASE_URI"] = os.environ['MYSQL_CONFIG']
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
 
