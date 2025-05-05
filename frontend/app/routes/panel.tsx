@@ -23,7 +23,7 @@ const Panel = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/tasks", { withCredentials: true })
+      .get(`${process.env.REACT_APP_API_URL}/api/tasks`, { withCredentials: true })
       .then((res) => {
         setTasks(res.data.tasks);
         setUserName(res.data.user);
