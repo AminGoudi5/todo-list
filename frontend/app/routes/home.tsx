@@ -17,6 +17,7 @@ const Home = () => {
     axios.get(`${process.env.REACT_APP_API_URL}/api/home-data`).then((res) => {
       setNewUsers(res.data.new_users);
       setTopUsers(res.data.top_users);
+      console.log("API_URL:", process.env.REACT_APP_API_URL);
     }).catch((err) => {
       console.error("خطا در دریافت اطلاعات صفحه اصلی", err);
     });
